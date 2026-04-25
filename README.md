@@ -1,5 +1,7 @@
 # 📦 LogiTrack Pro: Plataforma de Logística e Rastreamento em Tempo Real
 
+> 🚧 **Status do Projeto:** Em Desenvolvimento ativo (Sprint 1 - Fundação do Monolito)
+
 ### 1. O Elevator Pitch (Proposta de Valor)
 Para distribuidoras de médio e grande porte que perdem a visibilidade da sua frota durante picos de demanda, o **LogiTrack Pro** é uma plataforma de logística que garante o rastreamento em tempo real sob qualquer volume de acessos. Diferente dos sistemas monolíticos legados que travam o banco de dados sob estresse, nosso produto utiliza uma arquitetura orientada a eventos para absorver milhares de atualizações de GPS por segundo sem impacto na operação.
 
@@ -28,3 +30,13 @@ O que **NÃO FAZ PARTE** da entrega (Out of Scope):
 Como saberemos que este projeto deu certo?
 * **Técnica:** O sistema não deve devolver Erro 500 mesmo recebendo 5.000 requisições de GPS por segundo.
 * **Negócio:** A atualização do marcador da moto no mapa do painel administrativo deve ter um atraso (delay) máximo de 2 segundos em relação à vida real.
+
+  ## 🗺️ Roadmap de Desenvolvimento
+Para acompanhar a evolução da arquitetura, o projeto foi dividido nas seguintes etapas:
+
+- [x] **Fase 1: Concepção e Design de Sistema** (Visão, Escopo e NFRs definidos).
+- [ ] **Fase 2: Fundação Monolítica** (Modelagem de Dados e API Spring Boot inicial).
+- [ ] **Fase 3: Visão do Cliente** (Painel Angular com consumo de mapa em tempo real).
+- [ ] **Fase 4: O Colapso** (Scripts de estresse com k6 comprovando o gargalo do banco de dados).
+- [ ] **Fase 5: Microsserviços e Eventos** (Introdução do RabbitMQ e segregação do serviço de GPS).
+- [ ] **Fase 6: Orquestração** (Deploy com Docker e Minikube).
