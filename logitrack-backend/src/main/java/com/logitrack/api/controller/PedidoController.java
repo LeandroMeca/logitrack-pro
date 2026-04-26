@@ -2,6 +2,7 @@ package com.logitrack.api.controller;
 
 import com.logitrack.api.domain.Pedido;
 import com.logitrack.api.repository.PedidoRepository;
+import com.logitrack.api.service.PedidoService; // <-- Importante
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,17 +15,17 @@ import java.util.List;
 public class PedidoController {
 
     private final PedidoRepository pedidoRepository;
+    private final PedidoService pedidoService; // <-- Injetando o Serviço
 
-    // Rota para o Painel do Gestor listar todos os pedidos (GET)
     @GetMapping
     public ResponseEntity<List<Pedido>> listarTodos() {
         return ResponseEntity.ok(pedidoRepository.findAll());
     }
 
-    // Rota para CRIAR um novo pedido no sistema (POST)
     @PostMapping
     public ResponseEntity<Pedido> criar(@RequestBody Pedido pedido) {
-        Pedido novoPedido = pedidoRepository.save(pedido);
+        // Agora quem cria é o Service, aplicando as regras de negócio!
+        Pedido novoPedido = pedidoService.criar(pedido);
         return ResponseEntity.ok(novoPedido);
     }
 }
