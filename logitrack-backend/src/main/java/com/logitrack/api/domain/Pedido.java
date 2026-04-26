@@ -25,7 +25,7 @@ public class Pedido {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private StatusPedido status = StatusPedido.PENDENTE;
+    private StatusPedido status;
 
     // Relacionamento com a Tabela de Usuários (Entregador)
     @ManyToOne
